@@ -17,7 +17,6 @@ public class Block : MonoBehaviour
     public void TakeDamage(float damage)
     {
         _curHp -= damage;
-        Currency.OnChangedDollars(1);
         if (_curHp < 0)
         {
             _curHp = 0;
@@ -25,7 +24,8 @@ public class Block : MonoBehaviour
         _blockUI.OnChangedHp(_curHp);
         if (_curHp == 0)
         {
-            Destroy(gameObject);
+            Currency.OnChangedDollars(1);
+            gameObject.SetActive(false);
         }
     }
 }

@@ -1,33 +1,33 @@
 using UnityEngine;
 public class BallsMove : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    public static float Speed;
+    public static float Damage;
     [SerializeField] private float maxSpeed;
-    private Rigidbody2D rb;
-    private Vector2 direction;
+    private Rigidbody2D _rb;
+    private Vector2 _direction;
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        direction = new Vector2(Random.Range(-1f, 2f), -1);
+        _rb = GetComponent<Rigidbody2D>();
+        _direction = new Vector2(Random.Range(-1f, 2f), Random.Range(-1f, 2f));
     }
-
     void Update()
     {
-        rb.velocity = direction.normalized * speed;
+        _rb.velocity = _direction.normalized * Speed;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Floor"))
         {
-            direction.y = -direction.y;
+            _direction.y = -_direction.y;
         }
         if (collision.gameObject.CompareTag("Wall"))
         {
-            direction.x = -direction.x;
+            _direction.x = -_direction.x;
         }
         if (collision.gameObject.CompareTag("Block"))
         {
-            collision.gameObject.GetComponent<Block>().TakeDamage(1);
+            collision.gameObject.GetComponent<Block>().TakeDamage(Damage);
         }
     }
 }
