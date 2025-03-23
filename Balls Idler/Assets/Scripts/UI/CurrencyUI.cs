@@ -1,7 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
-public class UICurrency : MonoBehaviour
+public class CurrencyUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _countDollars;
     public static Action<float> OnChangedUI;

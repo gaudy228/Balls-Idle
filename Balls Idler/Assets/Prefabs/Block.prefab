@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 6030506910193004100}
   - component: {fileID: 4046653640210230305}
   - component: {fileID: 123485627786650748}
+  - component: {fileID: 3700738090148105819}
   - component: {fileID: 7490427425350631226}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Block
   m_TagString: Block
   m_Icon: {fileID: 0}
@@ -31,7 +32,7 @@ RectTransform:
   m_GameObject: {fileID: 4818203329358769237}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4246376319834595046}
@@ -102,10 +103,10 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -126,13 +127,13 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4046653640210230305}
         m_TargetAssemblyTypeName: Block, Assembly-CSharp
-        m_MethodName: TakeDamage
-        m_Mode: 4
+        m_MethodName: ClickDamage
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 1
+          m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
@@ -148,7 +149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31fee3ff013e15946a0b5ff68c9403da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHp: 10
 --- !u!114 &123485627786650748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +162,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hpText: {fileID: 2715954489342267465}
+--- !u!114 &3700738090148105819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4818203329358769237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34d48e4977555144087e2a8ff44d57c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &7490427425350631226
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -218,7 +230,7 @@ GameObject:
   - component: {fileID: 4246376319834595046}
   - component: {fileID: 7325418523802633998}
   - component: {fileID: 2715954489342267465}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,10 +284,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 10
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 35d1e6b8c2df75e4cb3427e08c4b24e2, type: 2}
+  m_sharedMaterial: {fileID: -1419592751974548618, guid: 35d1e6b8c2df75e4cb3427e08c4b24e2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -299,7 +311,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.75
+  m_fontSize: 50
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

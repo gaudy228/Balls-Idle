@@ -4,13 +4,16 @@ public class Currency : MonoBehaviour
 {
     private float dollars;
     public static Action<float> OnChangedDollars;
+    public static Func<float> OnReadDollars;
     private void OnEnable()
     {
         OnChangedDollars += ChangeCurrency;
+        OnReadDollars += ReadCurrency;
     }
     private void OnDisable()
     {
         OnChangedDollars -= ChangeCurrency;
+        OnReadDollars -= ReadCurrency;
     }
     public float ReadCurrency()
     {
@@ -19,6 +22,6 @@ public class Currency : MonoBehaviour
     private void ChangeCurrency(float change)
     {
         dollars += change;
-        UICurrency.OnChangedUI(dollars);
+        CurrencyUI.OnChangedUI(dollars);
     }
 }
