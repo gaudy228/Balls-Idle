@@ -10,8 +10,8 @@ public class UpgradeBallsUI : MonoBehaviour
     [SerializeField] private BuyUpgrade _buyUpgradeSecond;
     public void UpdatePointUI(int countFirstPoint, int countSecondPoint)
     {
-        _priseFirstUpgrade.text = _buyUpgradeFirst.Prise.ToString();
-        _priseSecondUpgrade.text = _buyUpgradeSecond.Prise.ToString();
+        _priseFirstUpgrade.text = $"${_buyUpgradeFirst.Prise}";
+        _priseSecondUpgrade.text = $"${_buyUpgradeSecond.Prise}";
         _firstUpgrade.text = $"{countFirstPoint} >> {countFirstPoint + 1}";
         _secondUpgrade.text = $"{countSecondPoint} >> {countSecondPoint + 1}";
     }

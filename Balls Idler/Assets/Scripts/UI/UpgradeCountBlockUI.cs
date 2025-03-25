@@ -30,7 +30,7 @@ public class UpgradeCountBlockUI : MonoBehaviour
     private void UpdatePointUI()
     {
         _countLvl++;
-        _priseUpgrade.text = _buyCountBlock.Prise.ToString();
+        _priseUpgrade.text = $"${_buyCountBlock.Prise}";
         _upgradeText.text = $"{_countLvl} >> {_countLvl + 1}";
     }
 }

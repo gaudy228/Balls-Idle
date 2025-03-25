@@ -10,6 +10,7 @@ public class BlockCost : MonoBehaviour
     {
         _refreshBlocks = GameObject.FindWithTag("BlockManager").GetComponent<RefreshBlocks>();
         _block = GetComponent<Block>();
+        _cost = PlayerPrefs.GetInt("Cost");
     }
     private void OnEnable()
     {
@@ -22,6 +23,7 @@ public class BlockCost : MonoBehaviour
     private void CostIncrease()
     {
         _cost++;
+        PlayerPrefs.SetInt("Cost", _cost);
         _block.PlusHp();
     }
     public void DeadBlock()

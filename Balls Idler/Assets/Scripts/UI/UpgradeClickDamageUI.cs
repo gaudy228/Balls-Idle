@@ -27,7 +27,7 @@ public class UpgradeClickDamageUI : MonoBehaviour
     private void UpdatePointUI()
     {
         _countLvl++;
-        _priseUpgrade.text = _buyClickDamage.Prise.ToString();
+        _priseUpgrade.text = $"${_buyClickDamage.Prise}";
         _upgradeText.text = $"{_countLvl} >> {_countLvl + 1}";
     }
 }

@@ -15,6 +15,7 @@ public class DefaultStat : MonoBehaviour
     }
     private void Awake()
     {
+        PlayerPrefs.DeleteAll();
         if (PlayerPrefs.HasKey(BallsFirstUpgrade.RedFirstUpgrade.ToString()) == false)
         {
             PlayerPrefs.SetInt(BallsFirstUpgrade.RedFirstUpgrade.ToString(), 1);
@@ -25,7 +26,15 @@ public class DefaultStat : MonoBehaviour
         }
         if (PlayerPrefs.HasKey("MaxHp") == false)
         {
-            PlayerPrefs.SetInt("MaxHp", 10);
+            PlayerPrefs.SetInt("MaxHp", 9);
+        }
+        if (PlayerPrefs.HasKey("ClickDamage") == false)
+        {
+            PlayerPrefs.SetInt("ClickDamage", 1);
+        }
+        if (PlayerPrefs.HasKey("Cost") == false)
+        {
+            PlayerPrefs.SetInt("Cost", 1);
         }
     }
 }

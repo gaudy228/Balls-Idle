@@ -2,21 +2,19 @@ using UnityEngine;
 public abstract class Buy : MonoBehaviour
 {
     public int Prise { get; private set; }
-    public int StartPrise;
-    [SerializeField] private int _maxLvl;
-    private int _curLvl = 1;
-    [SerializeField] private int _multiplPrise;
+    public int[] AllPrise;
+    public int CurLvl { get; private set; }
     private void Awake()
     {
-        Prise = StartPrise;
+        Prise = AllPrise[CurLvl];
     }
     public void Purchase()
     {
-        if(Currency.OnReadDollars() - Prise >= 0 && _curLvl < _maxLvl)
+        if(Currency.OnReadDollars() - Prise >= 0 && CurLvl < AllPrise.Length - 1)
         {
-            _curLvl++;
+            CurLvl++;
             Currency.OnChangedDollars(-Prise);
-            Prise *=  _multiplPrise;
+            Prise = AllPrise[CurLvl];
             BuySomething();
         }
     }

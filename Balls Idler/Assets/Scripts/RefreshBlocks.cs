@@ -36,6 +36,9 @@ public class RefreshBlocks : MonoBehaviour
     }
     private void Refresh()
     {
+        int _maxHp = PlayerPrefs.GetInt("MaxHp");
+        _maxHp++;
+        PlayerPrefs.SetInt("MaxHp", _maxHp);
         AllBlocks = new GameObject[_countBlocks];
         for (int i = 0; i < _countBlocks; i++)
         {

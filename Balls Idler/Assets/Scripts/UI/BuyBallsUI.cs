@@ -15,7 +15,7 @@ public class BuyBallsUI : MonoBehaviour
     }
     public void UpdatePriseUI()
     {
-        _priseText.text = _buyBalls.Prise.ToString();
-        _upgradePanel.SetActive(_buyBalls.Prise > _buyBalls.StartPrise);
+        _priseText.text = $"${_buyBalls.Prise}";
+        _upgradePanel.SetActive(_buyBalls.CanUpgradeBall);
     }
 }

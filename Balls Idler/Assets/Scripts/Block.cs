@@ -16,6 +16,7 @@ public class Block : MonoBehaviour
     private void Start()
     {
         _maxHp = PlayerPrefs.GetInt("MaxHp");
+        _clickDamage = PlayerPrefs.GetInt("ClickDamage");
         CurHp = _maxHp;
         _blockUI.ChangeHp(CurHp);
     }
@@ -33,6 +34,7 @@ public class Block : MonoBehaviour
     private void ChangeClickDamage()
     {
         _clickDamage++;
+        PlayerPrefs.SetInt("ClickDamage", _clickDamage);
         PlusHp();
     }
     public void PlusHp()
