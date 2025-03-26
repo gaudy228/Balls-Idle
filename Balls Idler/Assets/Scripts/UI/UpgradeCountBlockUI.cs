@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -32,5 +30,9 @@ public class UpgradeCountBlockUI : MonoBehaviour
         _countLvl++;
         _priseUpgrade.text = $"${_buyCountBlock.Prise}";
         _upgradeText.text = $"{_countLvl} >> {_countLvl + 1}";
+        if(_countLvl == _buyCountBlock.AllPrise.Length)
+        {
+            _priseUpgrade.text = $"Max";
+        }
     }
 }

@@ -9,9 +9,17 @@ public class RefreshBlocks : MonoBehaviour
     private int _countBlocks = 1;
     public static Action OnChangeCountBlock;
     public static Action OnRefresh;
+    private int _countRefreshToBoss;
+    [SerializeField] private int _maxcountRefreshToBoss = 3;
+    private SpawnBoss _spawnBoss;
+    private void Awake()
+    {
+        _spawnBoss = GetComponent<SpawnBoss>();
+    }
     private void Start()
     {
         Refresh();
+        _countRefreshToBoss = _maxcountRefreshToBoss;
     }
     private void OnEnable()
     {
@@ -36,18 +44,27 @@ public class RefreshBlocks : MonoBehaviour
     }
     private void Refresh()
     {
+        _countRefreshToBoss--;
         int _maxHp = PlayerPrefs.GetInt("MaxHp");
         _maxHp++;
         PlayerPrefs.SetInt("MaxHp", _maxHp);
         AllBlocks = new GameObject[_countBlocks];
-        for (int i = 0; i < _countBlocks; i++)
+        if(_countRefreshToBoss > 0)
         {
-            AllBlocks[i] = Blocks[i];
+            for (int i = 0; i < _countBlocks; i++)
+            {
+                AllBlocks[i] = Blocks[i];
+            }
+            CurBlocks = new List<GameObject>(AllBlocks);
+            for (int i = 0; i < AllBlocks.Length; i++)
+            {
+                AllBlocks[i].SetActive(true);
+            }
         }
-        CurBlocks = new List<GameObject>(AllBlocks);
-        for (int i = 0; i < AllBlocks.Length; i++)
+        if(_countRefreshToBoss == 0)
         {
-            AllBlocks[i].SetActive(true);
+            _spawnBoss.Spawn();
+            _countRefreshToBoss = _maxcountRefreshToBoss;
         }
     }
 }
