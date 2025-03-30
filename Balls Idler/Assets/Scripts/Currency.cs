@@ -2,26 +2,74 @@ using System;
 using UnityEngine;
 public class Currency : MonoBehaviour
 {
-    private float dollars;
-    public static Action<float> OnChangedDollars;
-    public static Func<float> OnReadDollars;
+    [SerializeField] private int _dollars;
+    private int _wDollars;
+    private int _rebornPoint;
+    private int _multilMoney;
+    public static Action<int> OnChangedDollars;
+    public static Func<int> OnReadDollars;
+    public static Action<int> OnChangedRebornPoint;
+    public static Func<int> OnReadW;
+    public static Action OnRebornWDollars;
+    public static Action<int> OnChangeWDollars;
+    private void Start()
+    {
+        _multilMoney = PlayerPrefs.GetInt("MultilMoney");
+        _wDollars = PlayerPrefs.GetInt("WDollars");
+        CurrencyUI.OnChangedWDollarsUI(_wDollars);
+    }
     private void OnEnable()
     {
-        OnChangedDollars += ChangeCurrency;
-        OnReadDollars += ReadCurrency;
+        OnChangedDollars += ChangeDefaultDollars;
+        OnReadDollars += ReadDefaultDollars;
+        OnChangedRebornPoint += ChangeRebornPoint;
+        OnReadW += ReadWDollars;
+        OnRebornWDollars += RebornWDollars;
+        OnChangeWDollars += ChangeWDollars;
     }
     private void OnDisable()
     {
-        OnChangedDollars -= ChangeCurrency;
-        OnReadDollars -= ReadCurrency;
+        OnChangedDollars -= ChangeDefaultDollars;
+        OnReadDollars -= ReadDefaultDollars;
+        OnChangedRebornPoint -= ChangeRebornPoint;
+        OnReadW -= ReadWDollars;
+        OnRebornWDollars -= RebornWDollars;
+        OnChangeWDollars -= ChangeWDollars;
     }
-    public float ReadCurrency()
+    private int ReadDefaultDollars()
     {
-        return dollars;
+        return _dollars;
     }
-    private void ChangeCurrency(float change)
+    private int ReadWDollars()
     {
-        dollars += change;
-        CurrencyUI.OnChangedUI(dollars);
+        return _wDollars;
+    }
+    private void ChangeDefaultDollars(int change)
+    {
+        if(change < 0)
+        {
+            _dollars += change;
+        }
+        else
+        {
+            _multilMoney = PlayerPrefs.GetInt("MultilMoney");
+            _dollars += change * _multilMoney;
+        }
+        CurrencyUI.OnChangedDefaultDollarsUI(_dollars);
+    }
+    private void ChangeRebornPoint(int change)
+    {
+        _rebornPoint += change;
+        CurrencyUI.OnChangedRebornPointUI(_rebornPoint);
+    }
+    private void RebornWDollars()
+    {
+        ChangeWDollars(_rebornPoint);
+    }
+    private void ChangeWDollars(int change)
+    {
+        _wDollars += change;
+        PlayerPrefs.SetInt("WDollars", _wDollars);
+        CurrencyUI.OnChangedWDollarsUI(_wDollars);
     }
 }

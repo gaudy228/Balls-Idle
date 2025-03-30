@@ -7,7 +7,6 @@ public class Block : MonoBehaviour
     private int _clickDamage = 1;
     private BlockUI _blockUI;
     private BlockCost _blockCost;
-    public static Action OnChangeClickDamage;
     private void Awake()
     {
         _blockUI = GetComponent<BlockUI>();
@@ -23,19 +22,9 @@ public class Block : MonoBehaviour
     private void OnEnable()
     {
         _maxHp = PlayerPrefs.GetInt("MaxHp");
+        _clickDamage = PlayerPrefs.GetInt("ClickDamage");
         CurHp = _maxHp;
         _blockUI.ChangeHp(CurHp);
-        OnChangeClickDamage += ChangeClickDamage;
-    }
-    private void OnDisable()
-    {
-        OnChangeClickDamage -= ChangeClickDamage;
-    }
-    private void ChangeClickDamage()
-    {
-        _clickDamage++;
-        PlayerPrefs.SetInt("ClickDamage", _clickDamage);
-        PlusHp();
     }
     public void PlusHp()
     {
@@ -49,6 +38,7 @@ public class Block : MonoBehaviour
     }
     public void ClickDamage()
     {
+        _clickDamage = PlayerPrefs.GetInt("ClickDamage");
         TakeDamage(_clickDamage);
     }
     public void TakeDamage(int damage)
@@ -61,5 +51,4 @@ public class Block : MonoBehaviour
         _blockUI.ChangeHp(CurHp);
         _blockCost.DeadBlock();
     }
-
 }

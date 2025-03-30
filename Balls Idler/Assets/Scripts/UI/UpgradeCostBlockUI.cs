@@ -29,7 +29,7 @@ public class UpgradeCostBlockUI : MonoBehaviour
         _countLvl++;
         _priseUpgrade.text = $"${_buyUpgradeCostBlock.Prise}";
         _upgradeText.text = $"{_countLvl} >> {_countLvl + 1}";
-        if (_countLvl == _buyUpgradeCostBlock.AllPrise.Length)
+        if (_countLvl - 1 == _buyUpgradeCostBlock.AllPrise.Length)
         {
             _priseUpgrade.text = $"Max";
         }

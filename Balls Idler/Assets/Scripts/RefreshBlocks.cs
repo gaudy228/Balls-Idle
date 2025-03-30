@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 public class RefreshBlocks : MonoBehaviour
 {
@@ -8,18 +9,20 @@ public class RefreshBlocks : MonoBehaviour
     public GameObject[] Blocks;
     private int _countBlocks = 1;
     public static Action OnChangeCountBlock;
-    public static Action OnRefresh;
+    public static Action<bool> OnRefresh;
     private int _countRefreshToBoss;
-    [SerializeField] private int _maxcountRefreshToBoss = 3;
+    [SerializeField] private int _maxcountRefreshToBoss;
     private SpawnBoss _spawnBoss;
+    [SerializeField] private TextMeshProUGUI _toBossText;
+    public bool CanRefresh { get; private set; } = true;
     private void Awake()
     {
         _spawnBoss = GetComponent<SpawnBoss>();
     }
     private void Start()
     {
-        Refresh();
         _countRefreshToBoss = _maxcountRefreshToBoss;
+        Refresh(false);
     }
     private void OnEnable()
     {
@@ -33,18 +36,22 @@ public class RefreshBlocks : MonoBehaviour
     }
     private void Update()
     {
-        if(CurBlocks.Count == 0)
+        if(CurBlocks.Count == 0 && CanRefresh)
         {
-            Refresh();
+            CanRefresh = false;
+            Refresh(true);
         }
     }
     private void ChangeCountBlock()
     {
         _countBlocks++;
     }
-    private void Refresh()
+    private void Refresh(bool needMinus)
     {
-        _countRefreshToBoss--;
+        if (needMinus)
+        {
+            _countRefreshToBoss--;
+        }
         int _maxHp = PlayerPrefs.GetInt("MaxHp");
         _maxHp++;
         PlayerPrefs.SetInt("MaxHp", _maxHp);
@@ -60,11 +67,13 @@ public class RefreshBlocks : MonoBehaviour
             {
                 AllBlocks[i].SetActive(true);
             }
+            CanRefresh = true;
         }
         if(_countRefreshToBoss == 0)
         {
-            _spawnBoss.Spawn();
             _countRefreshToBoss = _maxcountRefreshToBoss;
+            _spawnBoss.Spawn();
         }
+        _toBossText.text = $"Boss: {_countRefreshToBoss}";
     }
 }

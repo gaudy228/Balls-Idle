@@ -2,7 +2,8 @@ using System;
 using UnityEngine;
 public class BallsDamage : MonoBehaviour
 {
-    private int _damage;
+    protected int _damage;
+    protected int _multilMoney;
     [SerializeField] private BallsSecondUpgrade _ball;
     public bool CanDamage { set; private get; } = true;
     public static Action OnChangedStat;
@@ -22,13 +23,25 @@ public class BallsDamage : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Block") /*&& CanDamage*/)
         {
-            collision.gameObject.GetComponent<Block>().TakeDamage(_damage);
-            CanDamage = false;
+            UpdateStat();
+            collision.gameObject.GetComponent<Block>().TakeDamage(_damage * _multilMoney);
+            AfterDamage();
+        }
+        if (collision.gameObject.CompareTag("Boss") /*&& CanDamage*/)
+        {
+            UpdateStat();
+            collision.gameObject.GetComponent<Boss>().TakeDamage(_damage * _multilMoney);
+            AfterDamage();
         }
     }
+    public virtual void AfterDamage()
+    {
+        CanDamage = false;
+    } 
     private void UpdateStat()
     {
         _damage = PlayerPrefs.GetInt(_ball.ToString());
+        _multilMoney = PlayerPrefs.GetInt("MultilPower");
     }
     private enum BallsSecondUpgrade
     {

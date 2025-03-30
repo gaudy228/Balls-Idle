@@ -29,7 +29,7 @@ public class UpgradeClickDamageUI : MonoBehaviour
         _countLvl++;
         _priseUpgrade.text = $"${_buyClickDamage.Prise}";
         _upgradeText.text = $"{_countLvl} >> {_countLvl + 1}";
-        if (_countLvl == _buyClickDamage.AllPrise.Length)
+        if (_countLvl - 1 == _buyClickDamage.AllPrise.Length)
         {
             _priseUpgrade.text = $"Max";
         }

@@ -2,6 +2,7 @@ using UnityEngine;
 public class BuyCountBlock : Buy
 {
     [SerializeField] private int _plusHp;
+    [SerializeField] private RefreshBlocks _refreshBlocks;
     public override void BuySomething()
     {
         RefreshBlocks.OnChangeCountBlock();
@@ -9,6 +10,9 @@ public class BuyCountBlock : Buy
         int _maxHp = PlayerPrefs.GetInt("MaxHp");
         _maxHp += _plusHp;
         PlayerPrefs.SetInt("MaxHp", _maxHp);
-        RefreshBlocks.OnRefresh();
+        if (_refreshBlocks.CanRefresh)
+        {
+            RefreshBlocks.OnRefresh(false);
+        }
     }
 }

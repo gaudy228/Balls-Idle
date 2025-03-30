@@ -4,7 +4,6 @@ public class BlockCost : MonoBehaviour
 {
     private int _cost = 1;
     private Block _block;
-    public static Action OnChangeCost;
     private RefreshBlocks _refreshBlocks;
     private void Awake()
     {
@@ -14,22 +13,13 @@ public class BlockCost : MonoBehaviour
     }
     private void OnEnable()
     {
-        OnChangeCost += CostIncrease;
-    }
-    private void OnDisable()
-    {
-        OnChangeCost -= CostIncrease;
-    }
-    private void CostIncrease()
-    {
-        _cost++;
-        PlayerPrefs.SetInt("Cost", _cost);
-        _block.PlusHp();
+        _cost = PlayerPrefs.GetInt("Cost");
     }
     public void DeadBlock()
     {
         if(_block.CurHp == 0)
         {
+            _cost = PlayerPrefs.GetInt("Cost");
             Currency.OnChangedDollars(_cost);
             _refreshBlocks.CurBlocks.Remove(gameObject);
             gameObject.SetActive(false);

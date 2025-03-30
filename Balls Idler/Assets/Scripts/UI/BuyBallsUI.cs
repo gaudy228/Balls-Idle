@@ -19,7 +19,7 @@ public class BuyBallsUI : MonoBehaviour
         _countLvl++;
         _priseText.text = $"${_buyBalls.Prise}";
         _upgradePanel.SetActive(_buyBalls.CanUpgradeBall);
-        if (_countLvl >= _buyBalls.AllPrise.Length)
+        if (_countLvl - 1 >= _buyBalls.AllPrise.Length)
         {
             _priseText.text = $"Max";
         }
