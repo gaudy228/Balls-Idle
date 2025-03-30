@@ -5303,7 +5303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d707930f09b38db458aa2684c50a6b2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AllPrise: 02000000080000000a0000000c00000010000000
+  AllPrise: 0100000002000000030000000400000005000000
   _priseText: {fileID: 1455657103}
   _lvlText: {fileID: 352191764}
 --- !u!1 &460836680
@@ -9341,7 +9341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520f0188594c6b14d80d5c04fe4192d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AllPrise: 050000000a0000001400000019000000
+  AllPrise: 02000000030000000400000005000000
   _priseText: {fileID: 1354907722}
   _lvlText: {fileID: 888150489}
 --- !u!114 &764968398
@@ -25657,7 +25657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 433255246ce563141a1ae8d60eff7757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AllPrise: 03000000060000000c0000000f00000014000000
+  AllPrise: 0100000002000000030000000400000005000000
   _priseText: {fileID: 1666798412}
   _lvlText: {fileID: 347789481}
 --- !u!1001 &2134806492
