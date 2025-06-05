@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 227ce43bf75360c418bdfa19fec5ca3b
+guid: 8d6ed0e75aaf3e941a18b94163c93f64
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SpriteBallsIdel_0
+      name: SpriteBallsIdel2.0_0
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b7f558b18c03f043b1837cff1a3f7e2
-      internalID: 234456300
+      spriteID: b8ff106fc8f0d314bbf1f11304666442
+      internalID: -1030874324
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteBallsIdel_1
+      name: SpriteBallsIdel2.0_1
       rect:
         serializedVersion: 2
         x: 48
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 020c85da4545201489d1ccd67b5c1bb3
-      internalID: 1880347003
+      spriteID: 1c6356e427a3f0b44913d0624d7b9d2b
+      internalID: -323754321
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteBallsIdel_2
+      name: SpriteBallsIdel2.0_2
       rect:
         serializedVersion: 2
         x: 80
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c567712826532c4f85b5a1c28365337
-      internalID: -158838192
+      spriteID: 6ded0f957ac752a44a986ca681e59a59
+      internalID: 532067477
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteBallsIdel_3
+      name: SpriteBallsIdel2.0_3
       rect:
         serializedVersion: 2
         x: 112
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24b2e974efbb3de41a6c44ce6dd4d208
-      internalID: -2091112409
+      spriteID: cc645cda564959944ba4870db70a835d
+      internalID: 1528834150
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteBallsIdel_4
+      name: SpriteBallsIdel2.0_4
       rect:
         serializedVersion: 2
         x: 48
@@ -208,14 +208,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db0432a7ab9c011449ac15f4b2b645ef
-      internalID: 1719935388
+      spriteID: fc1f76be0cbb7344f9c507f81614190a
+      internalID: -1285253383
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteBallsIdel_5
+      name: SpriteBallsIdel2.0_5
       rect:
         serializedVersion: 2
         x: 96
@@ -229,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2e02aeb80876aa84f835ac5ae80acf00
-      internalID: 373955863
+      spriteID: 270d53352a177d748934adfa55f8776f
+      internalID: 410744005
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteBallsIdel_6
+      name: SpriteBallsIdel2.0_6
       rect:
         serializedVersion: 2
         x: 0
@@ -250,14 +250,56 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70a9e44c458fd424da8dffc77d193694
-      internalID: 1825500737
+      spriteID: dffae86bb77ce7e4286af7876ec5a146
+      internalID: -825661378
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SpriteBallsIdel_7
+      name: SpriteBallsIdel2.0_7
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 67
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b4bc2a603cc0a84abd5968171d8d0b1
+      internalID: 1881883327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBallsIdel2.0_8
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 68
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7478e7ce7e4a1724abac201026b7e6b0
+      internalID: -1556886372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBallsIdel2.0_9
       rect:
         serializedVersion: 2
         x: 0
@@ -271,8 +313,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6870fac7ac9b2524cb59abc8dced84d6
-      internalID: -703118299
+      spriteID: 3c6cdb131da6d60439d308d21507f5f4
+      internalID: -897221352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpriteBallsIdel2.0_10
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 23
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bad1dff71add3f44ebfe7332a074b31e
+      internalID: -1134406174
       vertices: []
       indices: 
       edges: []
@@ -288,14 +351,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      SpriteBallsIdel_0: 234456300
-      SpriteBallsIdel_1: 1880347003
-      SpriteBallsIdel_2: -158838192
-      SpriteBallsIdel_3: -2091112409
-      SpriteBallsIdel_4: 1719935388
-      SpriteBallsIdel_5: 373955863
-      SpriteBallsIdel_6: 1825500737
-      SpriteBallsIdel_7: -703118299
+      SpriteBallsIdel2.0_0: -1030874324
+      SpriteBallsIdel2.0_1: -323754321
+      SpriteBallsIdel2.0_10: -1134406174
+      SpriteBallsIdel2.0_2: 532067477
+      SpriteBallsIdel2.0_3: 1528834150
+      SpriteBallsIdel2.0_4: -1285253383
+      SpriteBallsIdel2.0_5: 410744005
+      SpriteBallsIdel2.0_6: -825661378
+      SpriteBallsIdel2.0_7: 1881883327
+      SpriteBallsIdel2.0_8: -1556886372
+      SpriteBallsIdel2.0_9: -897221352
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

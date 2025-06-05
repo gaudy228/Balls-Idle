@@ -14,6 +14,8 @@ public class RefreshBlocks : MonoBehaviour
     [SerializeField] private int _maxcountRefreshToBoss;
     private SpawnBoss _spawnBoss;
     [SerializeField] private TextMeshProUGUI _toBossText;
+    public bool BossIsActive {  get; private set; }
+    [SerializeField] private Tutor _tutor;
     public bool CanRefresh { get; private set; } = true;
     private void Awake()
     {
@@ -68,10 +70,13 @@ public class RefreshBlocks : MonoBehaviour
                 AllBlocks[i].SetActive(true);
             }
             CanRefresh = true;
+            BossIsActive = false;
         }
         if(_countRefreshToBoss == 0)
         {
             _countRefreshToBoss = _maxcountRefreshToBoss;
+            BossIsActive = true;
+            _tutor.Skip();
             _spawnBoss.Spawn();
         }
         _toBossText.text = $"Boss: {_countRefreshToBoss}";
