@@ -19,6 +19,14 @@ public class DefaultStat : MonoBehaviour
 
         PlayerPrefs.DeleteKey(BallsSecondUpgrade.RedSecondUpgrade.ToString());
 
+        PlayerPrefs.DeleteKey(BallsFirstUpgrade.GreenFirstUpgrade.ToString());
+
+        PlayerPrefs.DeleteKey(BallsSecondUpgrade.GreenSecondUpgrade.ToString());
+
+        PlayerPrefs.DeleteKey(BallsFirstUpgrade.BlueFirstUpgrade.ToString());
+
+        PlayerPrefs.DeleteKey(BallsSecondUpgrade.BlueSecondUpgrade.ToString());
+
         PlayerPrefs.DeleteKey("MaxHp");
 
         PlayerPrefs.DeleteKey("ClickDamage");

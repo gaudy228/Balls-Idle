@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 public class BuyWSpeed : Buy
 {
-    private int _curLvl = 1;
+    private int _curLvlUpgrade;
     [SerializeField] private TextMeshProUGUI _priseText;
     [SerializeField] private TextMeshProUGUI _lvlText;
     private void Start()
@@ -13,18 +13,20 @@ public class BuyWSpeed : Buy
     {
         int _plusSpeed = PlayerPrefs.GetInt("PlusSpeed");
         _plusSpeed++;
-        _curLvl++;
+        _curLvlUpgrade++;
         PlayerPrefs.SetInt("PlusSpeed", _plusSpeed);
+        PlayerPrefs.SetInt("LvlWSpeed", _curLvlUpgrade);
         UpdateUI();
-        //BallsMove.OnChangePlusSpeed();
     }
     private void UpdateUI()
     {
+        _curLvlUpgrade = PlayerPrefs.GetInt("LvlWSpeed");
         _priseText.text = $"W{Prise}";
-        _lvlText.text = $"{_curLvl} >> {_curLvl + 1}";
-        if (_curLvl - 1 == AllPrise.Length)
+        _lvlText.text = $"{_curLvlUpgrade} >> {_curLvlUpgrade + 1}";
+        if (_curLvlUpgrade == AllPrise.Length)
         {
             _priseText.text = $"Max";
+            _lvlText.text = $"{_curLvlUpgrade}";
         }
     }
 }

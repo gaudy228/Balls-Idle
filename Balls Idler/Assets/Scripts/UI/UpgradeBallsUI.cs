@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+
 public class UpgradeBallsUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _firstUpgrade;
@@ -9,21 +10,31 @@ public class UpgradeBallsUI : MonoBehaviour
     [SerializeField] private BuyUpgrade _buyUpgradeFirst;
     [SerializeField] private BuyUpgrade _buyUpgradeSecond;
     [SerializeField] private UpgradeBalls _upgradeBalls;
-    private int _countLvl;
-    public void UpdatePointUI(int countFirstPoint, int countSecondPoint)
+    private int _countFirstLvl;
+    private int _countSecondLvl;
+    public void UpdatePointUI(int countFirstPoint, int countSecondPoint, int whatIsUpgrade)
     {
-        _countLvl++;
+        if(whatIsUpgrade == 1)
+        {
+            _countFirstLvl++;
+        }
+        else if(whatIsUpgrade == 2)
+        {
+            _countSecondLvl++;
+        }
         _priseFirstUpgrade.text = $"${_buyUpgradeFirst.Prise}";
         _priseSecondUpgrade.text = $"${_buyUpgradeSecond.Prise}";
         _firstUpgrade.text = $"{countFirstPoint} >> {countFirstPoint + _upgradeBalls.PlusFirstPoint}";
         _secondUpgrade.text = $"{countSecondPoint} >> {countSecondPoint + _upgradeBalls.PlusSecondPoint}";
-        if (_countLvl - 1 == _buyUpgradeFirst.AllPrise.Length)
+        if (_countFirstLvl == _buyUpgradeFirst.AllPrise.Length)
         {
             _priseFirstUpgrade.text = $"Max";
+            _firstUpgrade.text = $"{countFirstPoint}";
         }
-        if (_countLvl - 1 == _buyUpgradeSecond.AllPrise.Length)
+        if (_countSecondLvl == _buyUpgradeSecond.AllPrise.Length)
         {
             _priseSecondUpgrade.text = $"Max";
+            _secondUpgrade.text = $"{countSecondPoint}";
         }
     }
 }

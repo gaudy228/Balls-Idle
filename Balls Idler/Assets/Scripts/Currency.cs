@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 public class Currency : MonoBehaviour
 {
-    private int _dollars;
+    [SerializeField] private int _dollars;
     private int _wDollars;
     private int _rebornPoint;
     private int _multilMoney;

@@ -32,6 +32,7 @@ public class UpgradeCostBlockUI : MonoBehaviour
         if (_countLvl - 1 == _buyUpgradeCostBlock.AllPrise.Length)
         {
             _priseUpgrade.text = $"Max";
+            _upgradeText.text = _countLvl.ToString();
         }
     }
 }

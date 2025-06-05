@@ -1,7 +1,7 @@
 using UnityEngine;
 public class Boss : MonoBehaviour
 {
-    private int _maxHp = 500;
+    [SerializeField] private int _maxHp = 500;
     [SerializeField] private int _multiplHp;
     private int _curHp;
     private int _clickDamage = 1;

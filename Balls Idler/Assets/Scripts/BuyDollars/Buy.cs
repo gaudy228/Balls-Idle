@@ -3,36 +3,51 @@ public abstract class Buy : MonoBehaviour
 {
     public int Prise { get; private set; }
     public int[] AllPrise;
-    public int CurLvl { get; private set; }
+    public int CurCost { get; private set; }
+    [SerializeField] private bool _isWDollars;
+    [SerializeField] private WhatWUpgrade _wUpgrade;
     private void Awake()
     {
-        Prise = AllPrise[CurLvl];
+        if(_isWDollars)
+        {
+            CurCost = PlayerPrefs.GetInt(_wUpgrade.ToString());
+        }
+        Prise = AllPrise[CurCost];
     }
     public void Purchase()
     {
-        if(Currency.OnReadDollars() - Prise >= 0 && CurLvl != AllPrise.Length)
+        if(Currency.OnReadDollars() - Prise >= 0 && CurCost != AllPrise.Length)
         {
-            CurLvl++;
+            CurCost++;
             Currency.OnChangedDollars(-Prise);
-            if (CurLvl != AllPrise.Length)
+            if (CurCost != AllPrise.Length)
             {
-                Prise = AllPrise[CurLvl];
+                Prise = AllPrise[CurCost];
             }
             BuySomething();
         }
     }
     public void PurchaseW()
     {
-        if (Currency.OnReadW() - Prise >= 0 && CurLvl != AllPrise.Length)
+        if (Currency.OnReadW() - Prise >= 0 && CurCost != AllPrise.Length)
         {
-            CurLvl++;
+            CurCost++;
             Currency.OnChangeWDollars(-Prise);
-            if(CurLvl != AllPrise.Length)
+            if(CurCost != AllPrise.Length)
             {
-                Prise = AllPrise[CurLvl];
+                Prise = AllPrise[CurCost];
+                PlayerPrefs.SetInt(_wUpgrade.ToString(), CurCost);
             }
             BuySomething();
         }
     }
     public abstract void BuySomething();
+
+    private enum WhatWUpgrade
+    {
+        None,
+        Money,
+        Speed,
+        Power
+    }
 }

@@ -5,7 +5,10 @@ public class BuyCountBlock : Buy
     [SerializeField] private RefreshBlocks _refreshBlocks;
     public override void BuySomething()
     {
-        RefreshBlocks.OnChangeCountBlock();
+        if(CurCost != AllPrise.Length)
+        {
+            RefreshBlocks.OnChangeCountBlock();
+        }
         UpgradeCountBlockUI.OnChangeCountBlockUI();
         int _maxHp = PlayerPrefs.GetInt("MaxHp");
         _maxHp += _plusHp;

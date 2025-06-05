@@ -14,14 +14,14 @@ public class UpgradeBalls : MonoBehaviour
         _countFirstPoint = PlayerPrefs.GetInt(_ballFirstUpgrade.ToString());
         _countSecondPoint = PlayerPrefs.GetInt(_ballsSecondUpgrade.ToString());
         if(_upgradeBallsUI != null)
-        _upgradeBallsUI.UpdatePointUI(_countFirstPoint, _countSecondPoint);
+        _upgradeBallsUI.UpdatePointUI(_countFirstPoint, _countSecondPoint, 0);
     }
     public void FirstUpgrade()
     {
         _countFirstPoint = PlayerPrefs.GetInt(_ballFirstUpgrade.ToString());
         _countFirstPoint += PlusFirstPoint;
         PlayerPrefs.SetInt(_ballFirstUpgrade.ToString(), _countFirstPoint);
-        _upgradeBallsUI.UpdatePointUI(_countFirstPoint, _countSecondPoint);
+        _upgradeBallsUI.UpdatePointUI(_countFirstPoint, _countSecondPoint, 1);
         BallsMove.OnChangedStat();
     }
     public void SecondUpgrade()
@@ -29,7 +29,7 @@ public class UpgradeBalls : MonoBehaviour
         _countSecondPoint = PlayerPrefs.GetInt(_ballsSecondUpgrade.ToString());
         _countSecondPoint += PlusSecondPoint;
         PlayerPrefs.SetInt(_ballsSecondUpgrade.ToString(), _countSecondPoint);
-        _upgradeBallsUI.UpdatePointUI(_countFirstPoint, _countSecondPoint);
+        _upgradeBallsUI.UpdatePointUI(_countFirstPoint, _countSecondPoint, 2);
         BallsDamage.OnChangedStat();
     }
     private enum BallsFirstUpgrade
