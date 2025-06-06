@@ -7,7 +7,7 @@ public class RefreshBlocks : MonoBehaviour
     private GameObject[] AllBlocks;
     public List<GameObject> CurBlocks;
     public GameObject[] Blocks;
-    private int _countBlocks = 1;
+    private int _countBlocks = 16;
     public static Action OnChangeCountBlock;
     public static Action<bool> OnRefresh;
     private int _countRefreshToBoss;

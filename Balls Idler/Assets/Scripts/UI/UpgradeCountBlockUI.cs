@@ -7,7 +7,7 @@ public class UpgradeCountBlockUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _priseUpgrade;
     [SerializeField] private TextMeshProUGUI _upgradeText;
     private BuyCountBlock _buyCountBlock;
-    private int _countLvl;
+    private int _countLvl = 15;
     public static Action OnChangeCountBlockUI;
     private void Awake()
     {
